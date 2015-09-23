@@ -13,7 +13,7 @@ import UIKit
 
     Heres how to use it:
 
-    let rippleView = DYRipple(frame: CGRectMake(location.x - 75.0, location.y - 75.0, 150.0, 150.0), animation: 0.75, withGreen:false)
+    let rippleView = DYRipple(frame: CGRectMake(location.x - 75.0, location.y - 75.0, 150.0, 150.0), animation: 0.75, fillColor:false)
     superView.addSubView(rippleView)
 
     Thats it!
