@@ -27,7 +27,12 @@ class DYRipple: UIView {
     
     var animationDelegate: AnyObject?
     var animationDuration: Double
-    let green: Bool
+    let willFillColor: Bool
+    
+    let innerColor: UIColor = UIColor.clearColor()
+    let outerColor: UIColor = UIColor.cyanColor()
+    
+    let fillColor: UIColor = UIColor.greenColor()
     
     // Values to generate random numbers
     var lowRandomValue: Float = 0.1
@@ -38,10 +43,10 @@ class DYRipple: UIView {
     //  :green:     This was used for a specific use case for a project, but you can expand and use a different color if you like
     //              If this Bool is true, the fill color of the ripple will be GREEN
     
-    init(frame: CGRect, animation: Double, withGreen: Bool) {
+    init(frame: CGRect, animation: Double, willFillColor fillColor: Bool) {
 
         self.animationDuration = animation
-        self.green = withGreen
+        self.willFillColor = fillColor
 
         super.init(frame: frame)
         
@@ -53,7 +58,7 @@ class DYRipple: UIView {
         self.addCircleAnimation()
 //        self.addSecondCircleAnimation()
         self.addFadeOut()
-        if(!self.green) {
+        if(!self.willFillColor) {
             self.endView(self.animationDuration)
         }
     }
@@ -78,11 +83,9 @@ class DYRipple: UIView {
         let context = UIGraphicsGetCurrentContext()
         
         let locations: [CGFloat] = [0.7, 1.0]
-        var colors = [UIColor.clearColor().CGColor,
-            UIColor.themeDrakCyanColor().CGColor]
-        if(self.green) {
-            colors = [UIColor.themeGreenColor().CGColor,
-                UIColor.themeDrakCyanColor().CGColor]
+        var colors = [innerColor.CGColor, outerColor.CGColor]
+        if(self.willFillColor) {
+            colors = [fillColor.CGColor, outerColor.CGColor]
         }
         
         let colorspace = CGColorSpaceCreateDeviceRGB()
@@ -108,7 +111,7 @@ class DYRipple: UIView {
     
     func addFadeOut() {
         
-        if(!self.green) {
+        if(!self.willFillColor) {
             UIView.animateWithDuration(self.animationDuration, animations: { () -> Void in
                 self.alpha = 0.0
             })
@@ -119,7 +122,7 @@ class DYRipple: UIView {
     
     func addCircleAnimation() {
         
-        let randomNumber = DYUtil.randomBetweenNumbers(0.1, secondNum: 4.0)
+        let randomNumber = self.randomBetweenNumbers(0.1, secondNum: 4.0)
         
         let circleAnimation = CABasicAnimation(keyPath: "transform.scale")
         circleAnimation.duration = self.animationDuration
@@ -128,12 +131,16 @@ class DYRipple: UIView {
         circleAnimation.removedOnCompletion = false
         circleAnimation.fromValue = NSNumber(float: 0.1)
         circleAnimation.toValue = NSNumber(float: randomNumber)
-        if(self.green) {
+        if(self.willFillColor) {
             circleAnimation.toValue = NSNumber(float: 3)
             circleAnimation.fillMode = kCAFillModeForwards
         }
         circleAnimation.delegate = self.animationDelegate
         self.layer.addAnimation(circleAnimation, forKey: "scale")
+    }
+    
+    func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> Float {
+        return Float(CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum))
     }
     
     //  Not used at the moment
