@@ -14,4 +14,4 @@ Creating a nice ripple animation.
 
 *****************************/
 
-![](https://raw.githubusercontent.com/dannyYassine/DYRipple/master/gifRIPPLE.gif)
+![](https://raw.githubusercontent.com/dannyYassine/DYRipple/master/Ripple.gif)
