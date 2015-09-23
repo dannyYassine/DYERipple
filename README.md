@@ -5,8 +5,8 @@ Heres how to use it:
     //  :rect:      Init the frame of the Ripple
     //  :animation: The duration of the animation
     //  :green:     This was used for a specific use case for a project, 
-                    but you can expand this and use a different color if you like
-                    If this Bool is true, the fill color of the ripple will be GREEN
+    //              but you can expand this and use a different color if you like
+    //              If this Bool is true, the fill color of the ripple will be GREEN
      
     
 
