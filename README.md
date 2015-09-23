@@ -13,3 +13,5 @@ Creating a nice ripple animation.
     The ripple will animate, expanding while fading out, and removing it self from its superview.
 
 *****************************/
+
+![](https://raw.githubusercontent.com/dannyYassine/DYRipple/master/gifRIPPLE.gif)
