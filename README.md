@@ -24,3 +24,24 @@ Thats it! The ripple will animate, expanding while fading out, and will remove i
     
 
 ![](https://raw.githubusercontent.com/dannyYassine/DYRipple/master/Ripple.gif)
+
+# Customize the Ripple
+Instantiate a DYRipple and change the custom properties
+
+    func singleTapGesture(tap: UITapGestureRecognizer) {
+    
+        let rippleView = DYRipple(frame: CGRectMake(location.x - 75.0, location.y - 75.0, 150.0, 150.0), animation: 0.75, willFillColor: false)
+        
+        rippleView.innerColor = UIColor.cyanColor()
+        rippleView.outerColor = UIColor.cyanColor()
+        rippleView.fillColor = UIColor.cyanColor()
+        rippleView.lowRandomValue = 2.0
+        rippleView.highRandomValue = 3.0
+        
+        rippleView.startAnimation()
+        
+        self.view.addSubview(rippleView)
+    }
+
+
+![](https://raw.githubusercontent.com/dannyYassine/DYRipple/master/newCustomGif.gif)
