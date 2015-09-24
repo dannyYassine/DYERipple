@@ -1,6 +1,6 @@
 # DYRipple: Creating a Ripple animation.
 /*
-    Animations of the views are slow down on the GIFs
+    Animations are slower on the GIFs
 */
 
 # Simple Integration
@@ -63,5 +63,5 @@ Instantiate a DYRipple and change the custom properties
 ![](https://raw.githubusercontent.com/dannyYassine/DYRipple/master/GIFs/newCustomGif.gif)
 
 /*
-    Animations of the views are slow down on the GIFs
+    Animations are slower on the GIFs
 */
