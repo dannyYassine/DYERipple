@@ -11,7 +11,7 @@
 
 Thats it! The ripple will animate, expanding while fading out, and will remove itself from its superview.
 
-# Using a Timer to create a subtle effect of the water droplets
+# Using a Timer to create a subtle effect of water droplets
 
     self.rippleTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "addMiddleRipple:", userInfo: nil, repeats: true)
     
