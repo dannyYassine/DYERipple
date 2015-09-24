@@ -40,6 +40,9 @@ Instantiate a DYRipple and change the custom properties
 
     func singleTapGesture(tap: UITapGestureRecognizer) {
     
+        //  Get location of users tap
+        let location = tap.locationInView(self.view)
+
         let rippleView = DYRipple(frame: CGRectMake(location.x - 75.0, location.y - 75.0, 150.0, 150.0), animation: 0.75, willFillColor: false)
         
         rippleView.innerColor = UIColor.cyanColor()
