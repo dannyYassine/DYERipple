@@ -13,7 +13,7 @@ import UIKit
 
     Heres how to use it:
 
-    let rippleView = DYRipple(frame: CGRectMake(location.x - 75.0, location.y - 75.0, 150.0, 150.0), animation: 0.75, fillColor:false)
+    let rippleView = DYRipple(frame: CGRectMake(location.x - 75.0, location.y - 75.0, 150.0, 150.0), animation: 0.75, withGreen:false)
     superView.addSubView(rippleView)
 
     Thats it!
@@ -29,10 +29,10 @@ class DYRipple: UIView {
     var animationDuration: Double
     let willFillColor: Bool
     
-    let innerColor: UIColor = UIColor.clearColor()
-    let outerColor: UIColor = UIColor.cyanColor()
+    var innerColor: UIColor = UIColor.clearColor()
+    var outerColor: UIColor = UIColor.cyanColor()
     
-    let fillColor: UIColor = UIColor.greenColor()
+    var fillColor: UIColor = UIColor.greenColor()
     
     // Values to generate random numbers
     var lowRandomValue: Float = 0.1
@@ -55,8 +55,11 @@ class DYRipple: UIView {
         self.layer.masksToBounds = true
         self.backgroundColor = UIColor.clearColor()
         
+    }
+    
+    func startAnimation() {
         self.addCircleAnimation()
-//        self.addSecondCircleAnimation()
+        //        self.addSecondCircleAnimation()
         self.addFadeOut()
         if(!self.willFillColor) {
             self.endView(self.animationDuration)
@@ -69,7 +72,7 @@ class DYRipple: UIView {
     
     //  Use GCD in order to remove the RIPPLE view from its superView after the duration ends
     
-    func endView(seconds:Double) {
+    internal func endView(seconds:Double) {
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
             self.removeFromSuperview()
@@ -78,7 +81,7 @@ class DYRipple: UIView {
     
     //  To draw a gradient Radial
     
-    override func drawRect(rect: CGRect) {
+    internal override func drawRect(rect: CGRect) {
     
         let context = UIGraphicsGetCurrentContext()
         
@@ -109,7 +112,7 @@ class DYRipple: UIView {
     
     //  Adds a fade out animation
     
-    func addFadeOut() {
+    internal func addFadeOut() {
         
         if(!self.willFillColor) {
             UIView.animateWithDuration(self.animationDuration, animations: { () -> Void in
@@ -120,7 +123,7 @@ class DYRipple: UIView {
     
     //  Animation to expand the view like a "Ripple".... (duh!)
     
-    func addCircleAnimation() {
+    internal func addCircleAnimation() {
         
         let randomNumber = self.randomBetweenNumbers(0.1, secondNum: 4.0)
         
@@ -139,13 +142,13 @@ class DYRipple: UIView {
         self.layer.addAnimation(circleAnimation, forKey: "scale")
     }
     
-    func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> Float {
+    internal func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> Float {
         return Float(CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum))
     }
     
     //  Not used at the moment
     
-    func addSecondCircleAnimation() {
+    internal func addSecondCircleAnimation() {
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(self.animationDuration/2 * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
 
