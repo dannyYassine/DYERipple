@@ -33,7 +33,7 @@ The ripple will animate, expanding while fading out, and will remove itself from
     }
     
 
-![](https://raw.githubusercontent.com/dannyYassine/DYRipple/master/Ripple.gif)
+![](https://raw.githubusercontent.com/dannyYassine/DYRipple/master/RainRipple.gif)
 
 # Customize the Ripple
 Instantiate a DYRipple and change the custom properties
