@@ -12,7 +12,7 @@
 
     func singleTapView(tap: UITapGestureRecognizer) {
     
-        // Get location of users tap
+        // Get the location of users tap
         let location = tap.locationInView(self.view)
         
         let rippleView = DYRipple(frame: CGRectMake(location.x - 75.0, location.y - 75.0, 150.0, 150.0), animation: 0.75, willFillColor: false)
@@ -23,7 +23,7 @@
 The ripple will animate, expanding while fading out, and will remove itself from its superview.
 # It removes itself from its superview after the animation
 
-![](https://raw.githubusercontent.com/dannyYassine/DYRipple/master/TapRipple.gif)
+![](https://raw.githubusercontent.com/dannyYassine/DYRipple/master/GIFs/TapRipple.gif)
 
 # Using a Timer to create a subtle effect of water droplets
 
@@ -36,14 +36,14 @@ The ripple will animate, expanding while fading out, and will remove itself from
     }
     
 
-![](https://raw.githubusercontent.com/dannyYassine/DYRipple/master/RainRipple.gif)
+![](https://raw.githubusercontent.com/dannyYassine/DYRipple/master/GIFs/RainRipple.gif)
 
 # Customize the Ripple
 Instantiate a DYRipple and change the custom properties
 
     func singleTapGesture(tap: UITapGestureRecognizer) {
     
-        //  Get location of users tap
+        //  Get the location of users tap
         let location = tap.locationInView(self.view)
 
         let rippleView = DYRipple(frame: CGRectMake(location.x - 75.0, location.y - 75.0, 150.0, 150.0), animation: 0.75, willFillColor: false)
@@ -60,7 +60,7 @@ Instantiate a DYRipple and change the custom properties
     }
 
 
-![](https://raw.githubusercontent.com/dannyYassine/DYRipple/master/newCustomGif.gif)
+![](https://raw.githubusercontent.com/dannyYassine/DYRipple/master/GIFs/newCustomGif.gif)
 
 /*
     Animations of the views are slow down on the GIFs
