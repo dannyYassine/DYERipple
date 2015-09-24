@@ -1,4 +1,8 @@
-# DYRipple: Creating a nice ripple animation.
+# DYRipple: Creating a Ripple animation.
+/*
+    Animations of the views are slow down on the GIFs
+*/
+
 # Simple Integration
 
     //  :rect:              Init the frame of the Ripple
@@ -58,3 +62,7 @@ Instantiate a DYRipple and change the custom properties
 
 
 ![](https://raw.githubusercontent.com/dannyYassine/DYRipple/master/newCustomGif.gif)
+
+/*
+    Animations of the views are slow down on the GIFs
+*/
