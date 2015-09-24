@@ -18,7 +18,7 @@ Thats it! The ripple will animate, expanding while fading out, and will remove i
     func addMiddleRipple(sender: NSTimer!) {
         
         let rippleView = DYRipple(frame: CGRectMake(CGRectGetMidX(self.view.frame) - 75.0, CGRectGetMidY(self.view.frame) - 75.0, 150.0, 150.0), animation: 2.0, willFillColor:false)
-        self.rippleContainer.addSubview(rippleView)
+        self.view.addSubview(rippleView)
     }
     
 
