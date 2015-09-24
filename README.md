@@ -7,6 +7,7 @@
     //                      but you can expand this and use a different color if you like
     
     let rippleView = DYRipple(frame: CGRectMake(location.x - 75.0, location.y - 75.0, 150.0, 150.0), animation: 0.75, willFillColor:false)
+    rippleView.startAnimation()
     superView.addSubView(rippleView)
 
 Thats it! The ripple will animate, expanding while fading out, and will remove itself from its superview.
