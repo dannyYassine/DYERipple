@@ -17,7 +17,6 @@
         
         let rippleView = DYRipple(frame: CGRectMake(location.x - 75.0, location.y - 75.0, 150.0, 150.0), animation: 0.75, willFillColor: false)
         rippleView.startAnimation()
-        rippleView.animationDelegate = self
         self.view.addSubview(rippleView)
     }
 
