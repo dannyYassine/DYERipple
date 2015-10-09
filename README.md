@@ -68,11 +68,9 @@ Instantiate a DYRipple and change the custom properties
 
 # Objective-C Compatibility
 
-    DYRipple *ripple = [[DYRipple alloc]initWithFrame:CGRectMake(self.mapView.frame.size.width/2 - 50, self.mapView.frame.size.height/2 - 50, 100, 100) animation:2 willFillColor:NO];
-        ripple.lowRandomValue = 4.0;
-        ripple.highRandomValue = 4.0;
-        ripple.innerColor = [UIColor sbMintGreenDimmed];
-        ripple.outerColor = [AppearanceManager mainColour];
+        DYRipple *ripple = [[DYRipple alloc]initWithFrame:CGRectMake(0, 0, 100, 100) animation:2 willFillColor:NO];
+        ripple.innerColor = [UIColor clearColor];
+        ripple.outerColor = [UIColor blueColor];
         [self.view addSubview:ripple];
         [ripple startAnimation];
 
