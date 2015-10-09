@@ -20,30 +20,31 @@ import UIKit
 
     The ripple will animate, expanding while fading out, and removing it self from its superview.
 
+
 *****************************/
 
 
-class DYRipple: UIView {
+public class DYRipple: UIView {
     
     var animationDelegate: AnyObject?
     var animationDuration: Double
-    let willFillColor: Bool
+    public let willFillColor: Bool
     
-    var innerColor: UIColor = UIColor.clearColor()
-    var outerColor: UIColor = UIColor.cyanColor()
+    public var innerColor: UIColor = UIColor.clearColor()
+    public var outerColor: UIColor = UIColor.cyanColor()
     
-    var fillColor: UIColor = UIColor.greenColor()
+    public var fillColor: UIColor = UIColor.greenColor()
     
     // Values to generate random numbers
-    var lowRandomValue: Float = 0.1
-    var highRandomValue: Float = 4.0
+    public var lowRandomValue: Float = 0.1
+    public var highRandomValue: Float = 4.0
     
     //  Init the frame of the Ripple
     //  :animation: The duration of the animation
     //  :green:     This was used for a specific use case for a project, but you can expand and use a different color if you like
     //              If this Bool is true, the fill color of the ripple will be GREEN
     
-    init(frame: CGRect, animation: Double, willFillColor fillColor: Bool) {
+    public init(frame: CGRect, animation: Double, willFillColor fillColor: Bool) {
 
         self.animationDuration = animation
         self.willFillColor = fillColor
@@ -57,7 +58,7 @@ class DYRipple: UIView {
         
     }
     
-    func startAnimation() {
+    public func startAnimation() {
         self.addCircleAnimation()
         //        self.addSecondCircleAnimation()
         self.addFadeOut()
@@ -66,7 +67,7 @@ class DYRipple: UIView {
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init code not implemented")
     }
     
@@ -81,7 +82,7 @@ class DYRipple: UIView {
     
     //  To draw a gradient Radial
     
-    internal override func drawRect(rect: CGRect) {
+    public override func drawRect(rect: CGRect) {
     
         let context = UIGraphicsGetCurrentContext()
         
@@ -125,7 +126,7 @@ class DYRipple: UIView {
     
     internal func addCircleAnimation() {
         
-        let randomNumber = self.randomBetweenNumbers(0.1, secondNum: 4.0)
+        let randomNumber = self.randomBetweenNumbers(CGFloat(lowRandomValue), secondNum: CGFloat(highRandomValue))
         
         let circleAnimation = CABasicAnimation(keyPath: "transform.scale")
         circleAnimation.duration = self.animationDuration
